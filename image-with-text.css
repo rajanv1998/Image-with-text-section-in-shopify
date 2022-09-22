@@ -1,0 +1,70 @@
+.new_image_with_text {
+    padding: 50px 0;
+}
+.niwt_container {
+    max-width: 1030px;
+  	padding: 0 20px;
+    margin: 0 auto;
+}
+.niwt_row {
+    display: flex;
+    flex-wrap: wrap;
+  	align-items: center;
+}
+.niwt_col {
+    width: 50%;
+    padding: 0 12px;
+}
+.niwt_content .section_heading h2 {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.34px;
+    font-weight: bold;
+}
+.niwt_middle_text p {
+    margin-bottom: 47px;
+    margin-top: 47px;
+    font-family: "Neue Hans Kendrick";
+}
+.niwt_button_container a {
+    display: inline-block;
+    font-size: 17px;
+    line-height: 38px;
+    transition: 0.6s all;
+    min-width: 165px;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 13px;
+}
+.niwt_img_box {
+    text-align: right;
+}
+.niwt_img_box img {
+    display: block;
+    width: 100%;
+  	border-radius: 9px;
+} 
+@media only screen and (max-width: 767px) {  
+  .new_image_with_text {
+    padding: 25px 0;
+}
+  .niwt_row {
+    flex-direction: column;
+}
+.niwt_col {
+    width: 100%;
+    padding: 0;
+}
+.niwt_content .section_heading h2 {
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.niwt_content.text-left {
+    text-align: center;
+    margin-top: 20px;
+}
+#main_sectemplate--15460697571490__164753935209907479 .niwt_row {
+    flex-direction: column-reverse;
+}  
+}
