@@ -1,0 +1,207 @@
+{% if section.settings.redirect == 'normal' %}
+<section class="new_image_with_text" style="background-color: {{ section.settings.section_bg_color }};" id="main_sec{{section.id}}">
+  <div class="niwt_container">
+    <div class="niwt_row">
+      
+      <div class="niwt_col">
+        <div class="niwt_content text-{{ section.settings.alignment }}">
+          <div class="section_heading">
+             {% if section.settings.section_heading != blank %}
+              <h2 style="color: {{ section.settings.section_heading_color }}; ">{{ section.settings.section_heading }}</h2>
+              {% endif %}
+          </div>
+          <div class="niwt_middle_text">
+          {% if section.settings.bottom_text != blank %}
+              <p style="color: {{ section.settings.bottom_text_color }};">{{ section.settings.bottom_text }}</p>
+           {% endif %}
+          </div>
+          <style>
+  .hover_{{forloop.index}} .niwt_button_container a:hover{
+  	background-color: {{ section.settings.hover_bg_color }} !important;
+  }
+</style>
+          {% if section.settings.button_lable != blank %}
+          <div class="niwt_button_container">
+              <a style="color: {{ section.settings.button_color }}; border: 2px solid {{ section.settings.button_border_color }}; background-color: {{ section.settings.button_bg_color }};" href="{{ section.settings.button_link }}">{{ section.settings.button_lable }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="niwt_col">
+        <div class="niwt_img">
+        	{% if section.settings.col_img != blank %}
+          		<a href="{{ section.settings.image_link }}">
+                <div class="niwt_img_box">
+                    <img src="{{ section.settings.col_img | img_url: 'master' }}" alt="">
+                </div>
+          		</a>
+              {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+{% elsif section.settings.redirect == 'reverse' %}
+<section class="new_image_with_text" style="background-color: {{ section.settings.section_bg_color }};" id="main_sec{{section.id}}">
+  <div class="niwt_container">
+    <div class="niwt_row">
+      
+      <div class="niwt_col">
+        <div class="niwt_img">
+        	{% if section.settings.col_img != blank %}
+          		<a href="{{ section.settings.image_link }}">
+                <div class="niwt_img_box">
+                    <img src="{{ section.settings.col_img | img_url: 'master' }}" alt="">
+                </div>
+          		</a>
+              {% endif %}
+        </div>
+      </div>
+      
+      <div class="niwt_col">
+        <div class="niwt_content text-{{ section.settings.alignment }}">
+          <div class="section_heading">
+             {% if section.settings.section_heading != blank %}
+              <h2 style="color: {{ section.settings.section_heading_color }}; ">{{ section.settings.section_heading }}</h2>
+              {% endif %}
+          </div>
+          <div class="niwt_middle_text">
+          {% if section.settings.bottom_text != blank %}
+              <p style="color: {{ section.settings.bottom_text_color }};">{{ section.settings.bottom_text }}</p>
+           {% endif %}
+          </div>
+          <style>
+  .hover_{{forloop.index}} .niwt_button_container a:hover{
+  	background-color: {{ section.settings.hover_bg_color }} !important;
+  }
+</style>
+          {% if section.settings.button_lable != blank %}
+          <div class="niwt_button_container">
+              <a style="color: {{ section.settings.button_color }}; border: 2px solid {{ section.settings.button_border_color }}; background-color: {{ section.settings.button_bg_color }};" href="{{ section.settings.button_link }}">{{ section.settings.button_lable }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+{%endif%}
+{% schema %}
+  {
+"name": "Moms Image With Text",
+"settings": [
+		{
+          "type": "radio",
+          "id": "redirect",
+          "label": "Redirection",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Image right"
+            },
+            {
+              "value": "reverse",
+              "label": "Image left"
+            }
+          ],
+          "default": "normal"
+        },
+		{
+          "type": "checkbox",
+          "id": "enable_section",
+          "label": "Enable Section",
+		  "default": true
+			
+        },
+		{
+          "type": "color",
+          "id": "section_bg_color",
+          "label": "Section Background Color"
+        },
+		{
+           "type": "select",
+           "id": "alignment",
+           "options": [
+              { "value": "left", "label": "Left"},
+              { "value": "center", "label": "Center"},
+              { "value": "right", "label": "Right"}
+           ],
+           "label": "Text Alignment"
+        },
+		{
+          "type": "textarea",
+          "id": "section_heading",
+          "label": "Heading"
+        },
+		{
+          "type": "color",
+          "id": "section_heading_color",
+          "label": "Heading Color"
+        },
+		{
+          "type": "textarea",
+          "id": "bottom_text",
+          "label": "Text"
+        },
+		{
+          "type": "color",
+          "id": "bottom_text_color",
+          "label": "Text Color"
+        },
+        {
+          "type": "text",
+          "id": "button_lable",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background Color",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "button_border_color",
+          "label": "Button Border Color",
+          "default": "#000"
+        },
+		{
+          "type": "color",
+          "id": "hover_bg_color",
+          "label": "Button Hover Color",
+          "default": "#000"
+        },
+		{
+          "type": "image_picker",
+          "id": "col_img",
+          "label": "Image"
+        },
+		{
+          "type": "url",
+          "id": "image_link",
+          "label": "Image Link"
+        }
+],
+"presets": [
+ {
+   "name": "Moms Image With Text",
+   "category": "text"
+ }
+]
+}
+{% endschema %}
